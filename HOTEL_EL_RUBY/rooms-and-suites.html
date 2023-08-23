@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel El Ruby</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/global-header.css">
+    <link rel="stylesheet" href="./assets/css/global-footer.css">
+    <link rel="stylesheet" href="./assets/css/rooms-and-suites.css">
+    <link rel="shortcut icon" href="..//imgenes/logo/logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <nav class="header-nav-bar">
+                <div class="header-nav-logo">
+                    <a href="index.html">
+                        <img width="300px" height="auto" src="/imgenes/logo/logo del hotel.png" alt="HOTEL EL RUBY">
+                    </a>
+                </div>
+                <ul class="header-nav-lists">
+                    <li class="header-nav-list">
+                        <a class="header-nav-link" href="index.html">Hogar</a>
+                    </li>
+                    <li class="header-nav-list"><a class="header-nav-link header-active" href="rooms-and-suites.html">Habitaciones y Suites</a></li>
+                    <li class="header-nav-list"><a class="header-nav-link" href="facilities.html">Instalaciones</a></li>
+                    <!--<li class="header-nav-list"><a class="header-nav-link" href="contact-page.html">Contact Us</a></li>-->
+                    <li class="header-nav-list"><a class="header-btn header-btn-custom" href="reservar.html">Reserva Ahora</a></li>
+                </ul>
+
+                <div class="header-hamburger-icon">
+                    <div class="header-hamburger-line-1"></div>
+                    <div class="header-hamburger-line-2"></div>
+                    <div class="header-hamburger-line-3"></div>
+                </div>
+            </nav>
+    </header>
+
+    <main>
+        <div class="container ">
+            <!-- Top Text -->
+            <div class="page-header-container ">
+                <h2 class="page-header ">Hotel El Ruby</h2>
+                <hr />
+                <p class="page-sub-header ">
+                    Aproveche al máximo las ofertas de nuestro hotel. Disfruta de lo moderno <br> comodidad y vista panorámica
+                </p>
+            </div>
+
+            <!-- Special offers section -->
+            <section class="special-offers ">
+                <div class="row center-lg ">
+                    <div class="col image-col right-marg ">
+                        <img src="../imgenes/habitaciones e instalaciones/285496298_446120470848064_2195770567369364133_n.jpg" alt="room-image " class="small-image ">
+                        <img src="../imgenes/habitaciones e instalaciones/20031690_1991793217721671_3559146115283967244_n.jpg " alt="room-image " class="small-image ">
+                        <img src="../imgenes/habitaciones e instalaciones/269814251_330044932455619_6132515414850091291_n.jpg" alt="room-image " class="small-image ">
+                        <div class="side-by-side-container ">
+                            <div class="large-image-container ">
+                                <img src="../imgenes/habitaciones e instalaciones/269814251_330044932455619_6132515414850091291_n.jpg" alt="room-image-large " class="large-image ">
+                            </div>
+                            <section class="stacked-image-container ">
+                                <div><img src="../imgenes/habitaciones e instalaciones/269906225_332747272185385_2903575361492489064_n.jpg" alt="room-image " class="small-image "></div>
+                                <div><img src="../imgenes/habitaciones e instalaciones/59870784_2397914190442903_6242255302788382720_n.jpg" alt="room-image " class="small-image "></div>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="col ">
+                        <h3 class="offers-title ">Ven y disfruta</h3>
+                        <p class="offers-sub-title ">
+                            disfruta de nuestro hotel con la mayor <br>atencion y todos los servicios incluidos
+                        </p>
+                        <ul class="offers-list ">
+                            <li>
+                                <div>
+                                    <img src="assets/img/check-square.png " alt="tick " class="list-icon ">
+                                    <p class="list-text ">Servicio gratuito de wifi</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="assets/img/check-square.png " alt="tick " class="list-icon ">
+                                    <p class="list-text ">Mejor tarifa garantizada</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="assets/img/check-square.png " alt="tick " class="list-icon ">
+                                    <p class="list-text ">Acceso gratuito a DSTV</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <button onclick="scrollToDestino()" class="btn btn-fill btn-large ">Ver más</button>
+                        <script src="./assets/js/script.js"></script>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Rooms -->
+            <section class="rooms-section ">
+                <div class="row room-section-header-container ">
+                    <div class="col col-3 ">
+                        <h4 class="room-section-header active-header " id="standard-room ">Habitaciones</h4>
+                    </div>
+                </div>
+                <div class="row center-lg ">
+                    <div class="rooms col col-2 ">
+                        <img src="https://res.cloudinary.com/start-ng/image/upload/v1591638448/Rectangle_42_nastdj.png " alt=" " class="rooms-img ">
+                        <h3 class="room-title ">Standard Economic Single</h3>
+                        <p class="room-text ">Designed specifically for Practicality and <br> comfort</p>
+                        <div>
+                            <div class="details-container ">
+                                <img src="assets/img/check-square.svg " alt="tick " class="list-icon ">
+                                <p class="list-text ">2 Persons</p>
+                            </div>
+                            <div class="details-container ">
+                                <img src="assets/img/check-square.svg " alt="tick " class="list-icon ">
+                                <p class="list-text ">1 Kingsize bed</p>
+                            </div>
+                        </div>
+                        <p class="amount-text ">NGN25,000 Per Night</p>
+                        <div class="buttons-container ">
+                            <a href="# " class="btn btn-ghost ">View More</a>
+                            <a href="https://timbu.com/search?query=hotel " class="btn btn-fill ">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="rooms col col-2 ">
+                        <img src="https://res.cloudinary.com/start-ng/image/upload/v1591638449/Rectangle_43_d9eepu.png " alt=" " class="rooms-img ">
+                        <h3 class="room-title ">Standard Economic Single</h3>
+                        <p class="room-text ">Designed specifically for Practicality and <br> comfort</p>
+                        <div>
+                            <div class="details-container ">
+                                <img src="assets/img/check-square.svg " alt="tick " class="list-icon ">
+                                <p class="list-text ">2 Persons</p>
+                            </div>
+                            <div class="details-container ">
+                                <img src="assets/img/bed.png " alt="tick " class="list-icon ">
+                                <p class="list-text ">1 Kingsize bed</p>
+                            </div>
+                        </div>
+                        <p class="amount-text ">NGN35,000 Per Night</p>
+                        <div class="buttons-container ">
+                            <a href="# " class="btn btn-ghost ">View More</a>
+                            <a href="https://timbu.com/search?query=hotel " class="btn btn-fill ">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="rooms col col-2 ">
+                        <img src="https://res.cloudinary.com/start-ng/image/upload/v1591638448/Rectangle_44_anerdv.png " alt=" " class="rooms-img ">
+                        <h3 class="room-title ">Standard Economic Single</h3>
+                        <p class="room-text ">Designed specifically for Practicality and <br> comfort</p>
+                        <div>
+                            <div class="details-container ">
+                                <img src="assets/img/check-square.svg " alt="tick " class="list-icon ">
+                                <p class="list-text ">2 Persons</p>
+                            </div>
+                            <div class="details-container ">
+                                <img src="assets/img/bed.png " alt="tick " class="list-icon ">
+                                <p class="list-text ">1 Kingsize bed</p>
+                            </div>
+                        </div>
+                        <p class="amount-text ">NGN45,000 Per Night</p>
+                        <div class="buttons-container ">
+                            <a href="# " class="btn btn-ghost ">View More</a>
+                            <a href="https://timbu.com/search?query=hotel " class="btn btn-fill ">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="rooms col col-2 ">
+                        <img src="https://res.cloudinary.com/start-ng/image/upload/v1591638449/Rectangle_45_mtl458.png " alt=" " class="rooms-img ">
+                        <h3 class="room-title ">Standard Economic Single</h3>
+                        <p class="room-text ">Designed specifically for Practicality and <br> comfort</p>
+                        <div>
+                            <div class="details-container ">
+                                <img src="assets/img/check-square.svg " alt="tick " class="list-icon ">
+                                <p class="list-text ">2 Persons</p>
+                            </div>
+                            <div class="details-container ">
+                                <img src="assets/img/bed.png " alt="tick " class="list-icon ">
+                                <p class="list-text ">1 Kingsize bed</p>
+                            </div>
+                        </div>
+                        <p class="amount-text ">NGN50,000 Per Night</p>
+                        <div class="buttons-container ">
+                            <a href="# " class="btn btn-ghost ">View More</a>
+                            <a href="https://timbu.com/search?query=hotel " class="btn btn-fill ">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer class="footer ">
+        <div class="footer-container ">
+            <nav class="footer-nav ">
+                <div class="footer-description ">
+                    <h3 class="footer-description-title ">Hotel RUBY</h3>
+                    <p>Hospitalidad y Comodidad son nuestras consignas</p>
+                </div>
+                <div class="footer-contact-us ">
+                    <h3 class="footer-description-title ">contactos Usuario</h3>
+                    <p class="footer-description-detail ">
+                        <img src="./assets/img/map-pin.svg " class="footer-description-icon " alt="star hotel location ">
+
+                        <span>Vereda, La Victoria, Villavieja, Huila</span></p>
+                    <p class="footer-description-detail ">
+                        <img src="./assets/img/phone.svg " class="footer-description-icon " alt="star hotels phone number ">
+                        <span>
+					 3133756050</span></p>
+                    <p class="footer-description-detail ">
+                        <img src="./assets/img/mail.svg " class="footer-description-icon " alt="star hotels email ">
+                        <span>support@starhotels.com</span> </p>
+                </div>
+
+                <div class="footer-follow-us ">
+                    <h3 class="footer-description-title ">Seguir Usuario</h3>
+                    <ul class="footer-follow-us-lists ">
+                        <li class="follow-us-list ">
+                            <a href="https://www.facebook.com/profile.php?id=100063503445941 ">
+                                <img src="./assets/img/facebook.svg " alt="hoel el ruby facebook ">
+                            </a>
+                        </li>
+                        <li class="follow-us-list ">
+                            <a href="https://www.instagram.com/hotelelruby/ ">
+                                <img src="./assets/img/instagram.svg " alt="hotel el ruby instagram ">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mapa-hotel">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.9857066976315!2d-75.17364042412567!3d3.3536404518597136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3bedf61aa8128d%3A0xbe812cff07c2bf92!2sHostal%20El%20Ruby!5e0!3m2!1ses!2sco!4v1683844836157!5m2!1ses!2sco"
+                        style="box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.658); border-radius: 50px; box-shadow: 100px;" allowfullscreen=" " loading="lazy " referrerpolicy="no-referrer-when-downgrade "></iframe>
+                </div>
+            </nav>
+        </div>
+    </footer>
+    <script src="assets/js/switchRooms.js "></script>
+    <script src="assets/js/toggleHamburger.js "></script>
+</body>
+
+</html>
