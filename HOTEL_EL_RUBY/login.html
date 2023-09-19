@@ -1,19 +1,23 @@
+<?php
+session_start(); // Iniciar la sesión
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="El hotel el ruby tiene una gran hospitalidad y gran atencion al cliente.">
     <title>Hotel El Ruby</title>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/global-header.css">
     <link rel="stylesheet" href="./assets/css/global-footer.css">
-    <link rel="stylesheet" href="./assets/css/facilities.css">
+    <link rel="stylesheet" href="./assets/css/accesibility.css">
+    <link rel="stylesheet" href="assets/css/login.css">
     <link rel="shortcut icon" href="../imgenes/logo/logo2.png" type="image/x-icon">
 </head>
 
-<body>
-
+<body class="scroll-bar">
     <header>
         <div class="header-container">
             <nav class="header-nav-bar">
@@ -41,95 +45,31 @@
             </nav>
         </div>
     </header>
-    <main>
-        <div class="container">
-
-            <!-- texto de arriba -->
-            <div class="page-header-container">
-                <h2 class="page-header">Instalaciones del Hotel RUBY</h2>
-                <hr />
-                <p class="page-sub-header">
-                    Aproveche al máximo las instalaciones de nuestro hotel. disfrutar del estado de <br> Instalaciones de última generación en nuestro hotel.
-                </p>
-            </div>
-            <!-- seccion -->
-            <section class="upper-section">
-                <div class="row center-lg">
-                    <div class="col image-col right-marg">
-                        <div class="large-image-container">
-                            <img src="..//imgenes/logo/5a452570546ddca7e1fcbc7d (1).png" alt="room-image-large" class="large-image">
-                        </div>
-
-                    </div>
-                    <!-- texto de arriba -->
-                    <div class="col">
-                        <h3 class="right-title">Acesso las 24 horas del dia <br> Servicios telefónicos</h3>
-                        <p>
-                            Con nuestros servicios telefónicos digitales repletos de funciones, usted <br> tendrá la flexibilidad que usted siempre he querido con <br> comunicación de voz desde su hogar o negocio.
-                        </p>
-                        <br>
-                        <h3>mas detalles</h3>
-                        <ul class="facilities-list">
-                            <li>
-                                <div>
-                                    <img src="assets/img/check-square.svg" alt="tick" class="list-icon">
-                                    <p class="list-text">larga distancia ilimitada</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <img src="assets/img/check-square.svg" alt="tick" class="list-icon">
-                                    <p class="list-text">identificador de llamadas</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <img src="assets/img/check-square.svg" alt="tick" class="list-icon">
-                                    <p class="list-text">llamada en espera</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+    <nav id="container_2">
+        <nav>
+        </nav>
+        <nav class="reservation-container">
+            <form action="login.php" method="post">
+                <div class="logo-container">
+                    <img src="..//imgenes/logo/logo del hotel.png" alt="hotel el ruby" class="logo2">
                 </div>
-            </section>
-            <!-- otra seleccion de pagina -->
-            <div class="up">
-                <h2 class="page-header">Otras instalaciónes</h2>
-                <hr />
-            </div>
+                <h2>INICIAR SECCION</h2>
+                <label for="email">Email:</label><br>
+                <input type="email" name="email" id="email" required><br>
 
-            <!-- galeria de lugares -->
-            <div class="container">
-                <div class="containera">
+                <label for="password">Contraseña:</label><br>
+                <input type="password" name="password" id="password" required><br>
 
-                    <div class="gallery">
-
-                        <div class="gallery-item">
-                            <img width="500px" height="250px" class="gallery-image" src="..//imgenes/logo/269814251_330044932455619_6132515414850091291_n.jpg" alt="restaurants">
-                            <h2>Restaurante</h2>
-                            <p class="imggrid">
-                                Tenemos los mejores platos locales e intercontinentales que hayas probado probado antes en nuestro hotel.
-                            </p>
-                        </div>
-                        <div class="gallery-item">
-                            <img width="500px" height="250px" class="gallery-image" src="../imgenes/habitaciones e instalaciones/263599402_320101160116663_8865088752819283339_n.jpg" alt="restaurants">
-                            <h2>Piscina</h2>
-                            <p class="imggrid">
-                                Nuestra piscina de baño es un oasis de tranquilidad perfecto para refrescarte y relajarte en nuestro hotel.
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-    </main>
-
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </nav>
+    </nav>
+    <!--bottom bar-->
     <footer class="footer">
         <div class="footer-container">
             <nav class="footer-nav">
                 <div class="footer-description">
-                    <h3 class="footer-description-title">Hotel RUBY</h3>
+                    <h3 class="footer-description-title"> HOTEL RUBY</h3>
                     <p>Hospitalidad y Comodidad son nuestras consignas</p>
                 </div>
                 <div class="footer-contact-us">
@@ -168,7 +108,73 @@
             </nav>
         </div>
     </footer>
-    <script src="assets/js/toggleHamburger.js"></script>
+
+    <div class="background1">
+        <img src="assets/img/desierto-de-la-tatacoa (1).png" alt="fondo">
+    </div>
+
+    <script>
+        // Array de días festivos en Colombia (puedes agregar más fechas si es necesario)
+        const festivos = ["2023-01-01", "2023-01-06", "2023-03-20", /* Agrega más fechas aquí */ ];
+
+        // Función para verificar si una fecha es festivo
+        function esFestivo(fecha) {
+            return festivos.includes(fecha);
+        }
+
+        // Función para verificar si una fecha es fin de semana (sábado o domingo)
+        function esFinDeSemana(fecha) {
+            const fechaSeleccionada = new Date(fecha);
+            return fechaSeleccionada.getDay() === 0 || fechaSeleccionada.getDay() === 6;
+        }
+
+        // Función para obtener la fecha actual en el formato YYYY-MM-DD
+        function obtenerFechaActual() {
+            const fechaActual = new Date();
+            const year = fechaActual.getFullYear();
+            const month = String(fechaActual.getMonth() + 1).padStart(2, '0');
+            const day = String(fechaActual.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        // Función para configurar las restricciones de fecha
+        function configurarFechas() {
+            const fechaLlegadaInput = document.getElementById("fecha_llegada");
+            const fechaActual = obtenerFechaActual();
+
+            // Establecer la fecha mínima como el día actual
+            fechaLlegadaInput.setAttribute("min", fechaActual);
+
+            fechaLlegadaInput.addEventListener("change", function() {
+                const fechaLlegada = fechaLlegadaInput.value;
+                if (esFinDeSemana(fechaLlegada) || esFestivo(fechaLlegada)) {
+                    // La fecha es fin de semana o festivo, permitir selección
+                    fechaLlegadaInput.removeAttribute("max");
+                } else {
+                    // No es fin de semana ni festivo, restringir la selección al día siguiente
+                    const fechaSiguiente = new Date(fechaLlegada);
+                    fechaSiguiente.setDate(fechaSiguiente.getDate() + 1);
+                    const year = fechaSiguiente.getFullYear();
+                    const month = String(fechaSiguiente.getMonth() + 1).padStart(2, '0');
+                    const day = String(fechaSiguiente.getDate()).padStart(2, '0');
+                    fechaLlegadaInput.setAttribute("max", `${year}-${month}-${day}`);
+                }
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', configurarFechas);
+    </script>
+    <script defer async>
+        (() => {
+            const loader = document.getElementById('loader');
+            const scrollBar = document.getElementsByClassName('scroll-bar')[0];
+            window.addEventListener('load', () => {
+                loader.classList.add('none');
+                scrollBar.classList.remove('scroll-bar')
+            });
+        })();
+    </script>
+    <script defer async src="assets/js/toggleHamburger.js"></script>
 </body>
 
 </html>
