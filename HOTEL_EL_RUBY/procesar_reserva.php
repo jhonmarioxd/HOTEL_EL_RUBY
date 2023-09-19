@@ -12,7 +12,7 @@ if ($conn->connect_error) {
     die("Error en la conexión: " . $conn->connect_error);
 }
 
-// Obtener los valores del formulario
+// Obtener los valores del formulario (asegúrate de que los nombres coincidan con los del formulario HTML)
 $nombre = $_POST["nombre"];
 $email = $_POST["email"];
 $telefono = $_POST["telefono"];
@@ -28,7 +28,7 @@ if (empty($nombre) || empty($email) || empty($telefono) || empty($fecha_llegada)
 }
 
 // Crear la tabla si no existe (si ya existe, esta línea no tiene efecto)
-$sql_create_table = "CREATE TABLE IF NOT EXISTS reservar (
+$sql_create_table = "CREATE TABLE IF NOT EXISTS reservas (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
@@ -44,19 +44,26 @@ if ($conn->query($sql_create_table) === FALSE) {
     exit;
 }
 
-
-// Insertar los datos en la tabla
+// Insertar los datos en la tabla (cambia "reservas" a "reservar" para que coincida con el nombre de la tabla que creaste)
 $sql_insert_data = "INSERT INTO reservas (nombre, email, telefono, fecha_llegada, fecha_salida, habitacion, personas)
     VALUES ('$nombre', '$email', '$telefono', '$fecha_llegada', '$fecha_salida', '$habitacion', '$personas')";
 
 if ($conn->query($sql_insert_data) === TRUE) {
     echo "Reserva realizada con éxito";
+    session_start(); // Iniciar la sesión si no está iniciada
+$_SESSION['mensaje_reserva'] = "Reserva realizada con éxito";
+header("Location: reservar.html"); // Redirigir de vuelta a la página de reserva
+// Verificar si la variable de sesión existe y mostrar el mensaje si es así
+if (isset($_SESSION['mensaje_reserva'])) {
+    echo '<div class="mensaje-reserva">' . $_SESSION['mensaje_reserva'] . '</div>';
+    // Eliminar la variable de sesión después de mostrar el mensaje
+    unset($_SESSION['mensaje_reserva']);
+}
+exit;
 } else {
     echo "Error al realizar la reserva: " . $conn->error;
 }
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-phpinfo();
+
 // Cerrar la conexión
 $conn->close();
 ?>

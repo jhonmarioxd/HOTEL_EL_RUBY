@@ -79,7 +79,7 @@ body {
 }
 
 
-/* Show class to  change the state of hambuger icon cross*/
+/* Show class to  change the state of hamburgers icon cross*/
 
 .show .header-hamburger-line-1 {
     transform: translateY(10px) rotate(135deg);
