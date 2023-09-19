@@ -6,9 +6,33 @@ p {
     font-size: 18px;
 }
 
-#container {
+
+/* Estilos para el contenedor principal */
+
+#container_2 {
+    display: flex;
+    padding: 20px;
+    /* Coloca el contenido a los extremos */
+    align-items: center;
+    /* Centra verticalmente los elementos */
+}
+
+
+/* Estilos para el contenedor del logo */
+
+.logo-container {
+    flex: 1;
+    /* Toma todo el espacio disponible en el lado izquierdo */
+    padding: 0px;
+    /* Agrega un poco de espacio alrededor del logotipo */
+    position: relative;
+    display: flex;
+}
+
+.reservation-container {
+    position: relative;
     max-width: 500px;
-    margin: 0 auto;
+    margin: 0 0 0 40px;
     padding: 0px;
     margin-bottom: 20px;
     background-color: rgb(159, 197, 84);
@@ -49,7 +73,7 @@ form button {
     display: block;
     width: 100%;
     padding: 20px;
-    background-color: rgba(124, 156, 59, 0.384);
+    background-color: rgb(118, 199, 64);
     color: rgb(255, 255, 255);
     border: none;
     border-radius: 3px;
@@ -57,7 +81,7 @@ form button {
 }
 
 form button:hover {
-    background-color: rgb(193, 212, 154);
+    background-color: rgb(255, 0, 191);
 }
 
 
@@ -268,7 +292,7 @@ form button:hover {
     .lower {
         padding-left: unset;
     }
-    .third-col {
+    a .third-col {
         order: -1;
         margin-bottom: 1rem;
     }

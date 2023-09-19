@@ -1,3 +1,6 @@
+<?php
+session_start(); // Iniciar la sesión
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +14,7 @@
     <link rel="stylesheet" href="./assets/css/global-footer.css">
     <link rel="stylesheet" href="./assets/css/accesibility.css">
     <link rel="stylesheet" href="./assets/css/reservas.css">
-    <link rel="shortcut icon" href="..//imgenes/logo/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../imgenes/logo/logo2.png" type="image/x-icon">
 </head>
 
 <body class="scroll-bar">
@@ -20,7 +23,7 @@
             <nav class="header-nav-bar">
                 <div class="header-nav-logo">
                     <a href="index.html">
-                        <img width="300px" height="auto" src="..//imgenes/logo/logo.png" type="image/x-icon" alt="star hotels logo">
+                        <img width="300px" height="auto" src="..//imgenes/logo/logo del hotel.png" type="image/x-icon" alt="hotel el ruby">
                     </a>
                 </div>
                 <ul class="header-nav-lists">
@@ -40,33 +43,42 @@
             </nav>
         </div>
     </header>
-    <div id="container">
-        <form action="procesar_reserva.php" method="post">
-            <h2>RESERVA AHORA</h2>
-            <label for="nombre">Nombre:</label><br>
-            <input type="text" name="nombre" id="nombre" required><br>
+    
+    <nav id="container_2">
+        <nav >
+            <div class="logo-container">
+                <img src="..//imgenes/logo/logo del hotel.png" type="image/x-icon" alt="hotel el ruby" class="invert-color">
+            </div>
+        </nav>
+        <nav class="reservation-container"> 
+            <form action="procesar_reserva.php" method="post">
+                <h2>RESERVA AHORA</h2>
+                <label for="nombre">Nombre:</label><br>
+                <input type="text" name="nombre" id="nombre" required><br>
 
-            <label for="email">Email:</label><br>
-            <input type="email" name="email" id="email" required><br>
+                <label for="email">Email:</label><br>
+                <input type="email" name="email" id="email" required><br>
 
-            <label for="telefono">Teléfono:</label><br>
-            <input type="tel" name="telefono" id="telefono" required><br>
+                <label for="telefono">Teléfono:</label><br>
+                <input type="tel" name="telefono" id="telefono" required><br>
 
-            <label for="fecha_llegada">Fecha de llegada:</label><br>
-            <input type="date" name="fecha_llegada" id="fecha_llegada" required><br>
+                <label for="fecha_llegada">Fecha de llegada:</label><br>
+                <input type="date" name="fecha_llegada" id="fecha_llegada" required><br>
 
-            <label for="fecha_salida">Fecha de salida:</label><br>
-            <input type="date" name="fecha_salida" id="fecha_salida" required><br>
+                <label for="fecha_salida">Fecha de salida:</label><br>
+                <input type="date" name="fecha_salida" id="fecha_salida" required><br>
 
-            <label for="habitacion">Número de habitación:</label><br>
-            <input type="number" name="habitacion" id="habitacion" required><br>
+                <label for="habitacion">Número de habitación:</label><br>
+                <input type="number" name="habitacion" id="habitacion" required><br>
 
-            <label for="personas">Cantidad de personas:</label><br>
-            <input type="number" name="personas" id="personas" required><br>
+                <label for="personas">Cantidad de personas:</label><br>
+                <input type="number" name="personas" id="personas" required><br>
 
-            <button type="submit">Reservar</button>
-        </form>
-    </div>
+
+                <button type="submit">Reservar</button>
+            </form>
+        </nav>
+    </nav>
 
 
     <!--bottom bar-->
@@ -113,6 +125,60 @@
             </nav>
         </div>
     </footer>
+    <div class="background1">
+        <img src="assets/img/desierto-de-la-tatacoa (1).png" alt="fondo">
+    </div>
+    <script>
+        // Array de días festivos en Colombia (puedes agregar más fechas si es necesario)
+        const festivos = ["2023-01-01", "2023-01-06", "2023-03-20", /* Agrega más fechas aquí */ ];
+
+        // Función para verificar si una fecha es festivo
+        function esFestivo(fecha) {
+            return festivos.includes(fecha);
+        }
+
+        // Función para verificar si una fecha es fin de semana (sábado o domingo)
+        function esFinDeSemana(fecha) {
+            const fechaSeleccionada = new Date(fecha);
+            return fechaSeleccionada.getDay() === 0 || fechaSeleccionada.getDay() === 6;
+        }
+
+        // Función para obtener la fecha actual en el formato YYYY-MM-DD
+        function obtenerFechaActual() {
+            const fechaActual = new Date();
+            const year = fechaActual.getFullYear();
+            const month = String(fechaActual.getMonth() + 1).padStart(2, '0');
+            const day = String(fechaActual.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        // Función para configurar las restricciones de fecha
+        function configurarFechas() {
+            const fechaLlegadaInput = document.getElementById("fecha_llegada");
+            const fechaActual = obtenerFechaActual();
+
+            // Establecer la fecha mínima como el día actual
+            fechaLlegadaInput.setAttribute("min", fechaActual);
+
+            fechaLlegadaInput.addEventListener("change", function() {
+                const fechaLlegada = fechaLlegadaInput.value;
+                if (esFinDeSemana(fechaLlegada) || esFestivo(fechaLlegada)) {
+                    // La fecha es fin de semana o festivo, permitir selección
+                    fechaLlegadaInput.removeAttribute("max");
+                } else {
+                    // No es fin de semana ni festivo, restringir la selección al día siguiente
+                    const fechaSiguiente = new Date(fechaLlegada);
+                    fechaSiguiente.setDate(fechaSiguiente.getDate() + 1);
+                    const year = fechaSiguiente.getFullYear();
+                    const month = String(fechaSiguiente.getMonth() + 1).padStart(2, '0');
+                    const day = String(fechaSiguiente.getDate()).padStart(2, '0');
+                    fechaLlegadaInput.setAttribute("max", `${year}-${month}-${day}`);
+                }
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', configurarFechas);
+    </script>
     <script defer async>
         (() => {
             const loader = document.getElementById('loader');
