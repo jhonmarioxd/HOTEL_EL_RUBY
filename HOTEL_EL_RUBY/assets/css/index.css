@@ -1,3 +1,6 @@
+body{
+    transition: background-color 0.3s ease; 
+}
 * {
     font-family: 'Source Sans Pro';
 }
@@ -6,7 +9,7 @@
 /*Loader*/
 
 #loader {
-    background-color: rgb(159 197 84);
+    background-color: rgb(118, 199, 64);
     position: fixed;
     top: 0;
     left: 0;
@@ -36,7 +39,7 @@
     width: 10%;
     margin: 1em 0 2em 0;
     height: 1px;
-    background-color: rgb(159 197 84);
+    background-color: rgb(118, 199, 64);
     border: none;
 }
 
@@ -147,7 +150,7 @@ hr {
 .page-header:after {
     display: block;
     height: 1px;
-    background-color: rgb(159 197 84);
+    background-color: rgb(118, 199, 64);
     content: '';
     width: 90px;
     margin: 0.5em auto 0 auto;
@@ -252,7 +255,7 @@ hr {
 }
 
 .jumbotron-form button {
-    background: rgb(159 197 84);
+    background: rgb(118, 199, 64);
     outline: none;
     width: 80%;
     padding: 0.5em;
@@ -382,7 +385,7 @@ hr {
 
 .btn {
     border-radius: 3px;
-    border: 1px solid rgb(159 197 84);
+    border: 1px solid rgb(118, 199, 64);
     text-align: center;
     text-transform: uppercase;
     font-size: 55%;
@@ -394,7 +397,7 @@ hr {
 }
 
 .btn-fill {
-    background-color: rgb(159 197 84);
+    background-color: rgb(118, 199, 64);
     width: 500px;
     height: 65px;
     color: rgb(255, 255, 255);
@@ -406,25 +409,25 @@ hr {
 
 .rates:active,
 .rates:hover {
-    background-color: rgb(159 197 84);
-    border: 1px solid rgb(159 197 84);
+    background-color: rgb(118, 199, 64);
+    border: 1px solid rgb(118, 199, 64);
 }
 
 .btn-fill:hover,
 .btn-fill:active {
-    background-color: rgb(159 197 84);
+    background-color: rgb(118, 199, 64);
     transform: translateY(-3px);
-    border: 1px solid rgb(159 197 84);
+    border: 1px solid rgb(118, 199, 64);
 }
 
 .btn-ghost {
-    color: rgb(159 197 84);
-    background-color: rgb(159 197 84);
+    color: rgb(118, 199, 64);
+    background-color: rgb(118, 199, 64);
 }
 
 .btn-ghost:hover,
 .btn-ghost:active {
-    background-color: rgb(159 197 84);
+    background-color: rgb(118, 199, 64);
     color: #fff;
 }
 

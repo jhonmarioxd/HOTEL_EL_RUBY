@@ -3,13 +3,16 @@
 $servername = "127.0.0.1";
 $username = "root";
 $password = "";
-$dbname = "hotelelruby";
+$dbname = "hotel_el_ruby_db";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Verificar si la conexión fue exitosa
-if ($conn->connect_error) {
-    die("Error en la conexión: " . $conn->connect_error);
+if ($conn) {
+    echo'si se ha podido conectar la base de datos';
+}
+else{
+    echo 'no se ha podido conectar la base de datos';
 }
 
 // Obtener los valores del formulario (asegúrate de que los nombres coincidan con los del formulario HTML)

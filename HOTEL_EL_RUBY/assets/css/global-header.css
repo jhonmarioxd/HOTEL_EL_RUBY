@@ -39,7 +39,7 @@ body {
 }
 
 .header-active {
-    color: #9fc554;
+    color: rgba(118, 199, 64, 0.829);
 }
 
 .header-nav-logo {
@@ -65,7 +65,7 @@ body {
 .header-hamburger-line-1,
 .header-hamburger-line-2,
 .header-hamburger-line-3 {
-    background-color: rgb(159 197 84);
+    background-color: rgba(118, 199, 64, 0.829);
     width: 1.78rem;
     height: 0.2rem;
     transition: all 0.2s ease-in-out;
@@ -124,14 +124,14 @@ header ul.show li {
     width: 133px;
     height: 48px;
     border-radius: 4px;
-    background-color: rgb(159 197 84);
+    background-color: rgba(118, 199, 64, 0.829);
     color: #fff;
 }
 
 .header-btn-custom:hover,
 .header-btn-custom:active {
-    background-color: rgb(159 197 84);
-    border: 1px solid rgb(159 197 84);
+    background-color: rgba(118, 199, 64, 0.829);
+    border: 1px solid rgba(118, 199, 64, 0.829);
 }
 
 @media (min-width: 850px) {

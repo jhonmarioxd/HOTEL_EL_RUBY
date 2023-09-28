@@ -15,6 +15,8 @@ session_start(); // Iniciar la sesión
     <link rel="stylesheet" href="./assets/css/accesibility.css">
     <link rel="stylesheet" href="./assets/css/reservas.css">
     <link rel="shortcut icon" href="../imgenes/logo/logo2.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
 </head>
 
 <body class="scroll-bar">
@@ -46,20 +48,20 @@ session_start(); // Iniciar la sesión
         </div>
     </header>
     
-    <nav id="container_2">
-        <nav >
+    <div id="container_2">
+        <!--<nav >
             <div class="logo-container">
                 <img src="..//imgenes/logo/logo del hotel.png" type="image/x-icon" alt="hotel el ruby" class="invert-color">
             </div>
-        </nav>
-        <nav class="reservation-container"> 
-            <form action="procesar_reserva.php" method="post">
+        </nav>-->
+        <div class="reservation-container"> 
+            <form action="/HOTEL_EL_RUBY/bd/procesar_reserva.php" method="post">
                 <h2>RESERVA AHORA</h2>
                 <label for="nombre">Nombre:</label><br>
                 <input type="text" name="nombre" id="nombre" required><br>
 
                 <label for="email">Email:</label><br>
-                <input type="email" name="email" id="email" required><br>
+                <input type="text" name="email" id="email" required><br>
 
                 <label for="telefono">Teléfono:</label><br>
                 <input type="tel" name="telefono" id="telefono" required><br>
@@ -79,8 +81,8 @@ session_start(); // Iniciar la sesión
 
                 <button type="submit">Reservar</button>
             </form>
-        </nav>
-    </nav>
+        </div>
+    </div>
 
 
     <!--bottom bar-->
@@ -88,25 +90,25 @@ session_start(); // Iniciar la sesión
         <div class="footer-container">
             <nav class="footer-nav">
                 <div class="footer-description">
-                    <h3 class="footer-description-title"> HOTEL RUBY</h3>
+                    <h3 class="footer-description-title">HOTEL El RUBY</h3>
                     <p>Hospitalidad y Comodidad son nuestras consignas</p>
                 </div>
                 <div class="footer-contact-us">
-                    <h3 class="footer-description-title">contactos Usuario</h3>
+                    <h3 class="footer-description-title">Contactos</h3>
                     <p class="footer-description-detail">
-                        <img src="./assets/img/map-pin.svg" class="footer-description-icon" alt="star hotel location">
+                        <img src="./assets/img/map-pin.svg" class="footer-description-icon" alt="hotel el ruby contacs">
 
                         <span>Vereda, La Victoria, Villavieja, Huila</span></p>
                     <p class="footer-description-detail">
-                        <img src="./assets/img/phone.svg" class="footer-description-icon" alt="star hotels phone number">
+                        <img src="./assets/img/phone.svg" class="footer-description-icon" alt="hotel el ruby phone">
                         <span>
 					 3133756050</span></p>
                     <p class="footer-description-detail">
-                        <img src="./assets/img/mail.svg" class="footer-description-icon" alt="star hotels email">
+                        <img src="./assets/img/mail.svg" class="footer-description-icon" alt="hotel el ruby email">
                         <span>support@starhotels.com</span> </p>
                 </div>
                 <div class="footer-follow-us">
-                    <h3 class="footer-description-title">Seguir Usuario</h3>
+                    <h3 class="footer-description-title">Redes sociales</h3>
                     <ul class="footer-follow-us-lists">
                         <li class="follow-us-list">
                             <a href="https://www.facebook.com/profile.php?id=100063503445941">
@@ -167,6 +169,7 @@ session_start(); // Iniciar la sesión
                 if (esFinDeSemana(fechaLlegada) || esFestivo(fechaLlegada)) {
                     // La fecha es fin de semana o festivo, permitir selección
                     fechaLlegadaInput.removeAttribute("max");
+                    fechaLlegadaInput.style.backgroundColor = "rgb(118, 199, 64)";
                 } else {
                     // No es fin de semana ni festivo, restringir la selección al día siguiente
                     const fechaSiguiente = new Date(fechaLlegada);
