@@ -156,40 +156,65 @@ session_start(); // Iniciar la sesión
             return `${year}-${month}-${day}`;
         }
 
-        // Función para configurar las restricciones de fecha
-        function configurarFechas() {
-            const fechaLlegadaInput = document.getElementById("fecha_llegada");
-            const fechaActual = obtenerFechaActual();
+        
+    // Función para configurar las restricciones de fecha
+    function configurarFechas() {
+        const fechaLlegadaInput = document.getElementById("fecha_llegada");
+        const fechaSalidaInput = document.getElementById("fecha_salida");
+        const fechaActual = obtenerFechaActual();
 
-            // Establecer la fecha mínima como el día actual
-            fechaLlegadaInput.setAttribute("min", fechaActual);
+        // Establecer la fecha mínima como el día actual
+        fechaLlegadaInput.setAttribute("min", fechaActual);
 
-            fechaLlegadaInput.addEventListener("change", function() {
-                const fechaLlegada = fechaLlegadaInput.value;
-                if (esFinDeSemana(fechaLlegada) || esFestivo(fechaLlegada)) {
-                    // La fecha es fin de semana o festivo, permitir selección
-                    fechaLlegadaInput.removeAttribute("max");
-                    fechaLlegadaInput.style.backgroundColor = "rgb(118, 199, 64)";
-                } else {
-                    // No es fin de semana ni festivo, restringir la selección al día siguiente
-                    const fechaSiguiente = new Date(fechaLlegada);
-                    fechaSiguiente.setDate(fechaSiguiente.getDate() + 1);
-                    const year = fechaSiguiente.getFullYear();
-                    const month = String(fechaSiguiente.getMonth() + 1).padStart(2, '0');
-                    const day = String(fechaSiguiente.getDate()).padStart(2, '0');
-                    fechaLlegadaInput.setAttribute("max", `${year}-${month}-${day}`);
-                }
-            });
+        fechaLlegadaInput.addEventListener("change", function() {
+            const fechaLlegada = fechaLlegadaInput.value;
+            if (esFinDeSemana(fechaLlegada) || esFestivo(fechaLlegada)) {
+                // La fecha es fin de semana o festivo, permitir selección
+                fechaSalidaInput.removeAttribute("max");
+                fechaSalidaInput.style.backgroundColor = "rgb(118, 199, 64)";
+            } else {
+                // No es fin de semana ni festivo, restringir la selección al día siguiente
+                const fechaSiguiente = new Date(fechaLlegada);
+                fechaSiguiente.setDate(fechaSiguiente.getDate() + 1);
+                const year = fechaSiguiente.getFullYear();
+                const month = String(fechaSiguiente.getMonth() + 1).padStart(2, '0');
+                const day = String(fechaSiguiente.getDate()).padStart(2, '0');
+                fechaSalidaInput.setAttribute("min", `${year}-${month}-${day}`);
+                fechaSalidaInput.style.backgroundColor = ""; // Eliminar el fondo de color
+            }
+
+            // Asegurarse de que la fecha de salida sea válida
+            validarFechaSalida();
+        });
+
+        fechaSalidaInput.addEventListener("change", function() {
+            // Asegurarse de que la fecha de salida sea válida
+            validarFechaSalida();
+        });
+    }
+
+    // Función para validar la fecha de salida
+    function validarFechaSalida() {
+        const fechaLlegadaInput = document.getElementById("fecha_llegada");
+        const fechaSalidaInput = document.getElementById("fecha_salida");
+        const fechaLlegada = new Date(fechaLlegadaInput.value);
+        const fechaSalida = new Date(fechaSalidaInput.value);
+
+        if (fechaSalida < fechaLlegada || fechaSalida < new Date()) {
+            // La fecha de salida es anterior a la fecha de llegada o a la fecha actual
+            alert("La fecha de salida debe ser posterior a la fecha de llegada y a la fecha actual.");
+            fechaSalidaInput.value = ""; // Limpiar el campo de fecha de salida
         }
+    }
 
-        window.addEventListener('DOMContentLoaded', configurarFechas);
-    </script>
+    window.addEventListener('DOMContentLoaded', configurarFechas);
+</script>
+
     <script defer async>
         (() => {
             const loader = document.getElementById('loader');
             const scrollBar = document.getElementsByClassName('scroll-bar')[0];
             window.addEventListener('load', () => {
-                loader.classList.add('none');
                 scrollBar.classList.remove('scroll-bar')
             });
         })();

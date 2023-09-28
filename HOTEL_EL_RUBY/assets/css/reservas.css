@@ -6,22 +6,20 @@
     display: flex;
     justify-content: center; /* Centra horizontalmente los elementos */
     align-items: center; /* Centra verticalmente los elementos */
-    height: 100vh; /* Establece la altura al 100% del viewport */
-    background-color: rgb(159, 197, 84);
-    box-shadow: 10px 10px 5px rgba(15, 15, 15, 0.438);
     border-radius: 5px;
+    background-color: #fff;
     color: #fff;
 }
 
 
 
-.reservation-container{
+.reservation-container {
     position: relative;
     max-width: 2000px;
     margin: 0 auto 0 auto;
     padding: 0px;
     margin-bottom: 20px;
-    background-color: rgb(159, 197, 84);
+
     box-shadow: 10px 10px 5px rgba(15, 15, 15, 0.438);
     border-radius: 5px;
     color: #fff;
