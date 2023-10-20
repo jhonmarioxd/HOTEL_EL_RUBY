@@ -17,19 +17,19 @@
         <div class="header-container">
             <nav class="header-nav-bar">
                 <div class="header-nav-logo">
-                    <a href="index.html">
+                    <a href="index.php">
                         <img width="300px" height="auto" src="..//imgenes/logo/logo del hotel.png" type="image/x-icon" alt="hotel el ruby">
                     </a>
                 </div>
                 <ul class="header-nav-lists">
                     <li class="header-nav-list">
-                        <a class="header-nav-link header-active" href="index.html">Hogar</a>
+                        <a class="header-nav-link header-active" href="index.php">Hogar</a>
                     </li>
-                    <li class="header-nav-list"><a class="header-nav-link" href="rooms-and-suites.html">Habitaciones y Suites</a></li>
+                    <li class="header-nav-list"><a class="header-nav-link" href="rooms-and-suites.php">Habitaciones y Suites</a></li>
                     <li class="header-nav-list"><a class="header-nav-link" href="facilities.php">Instalaciones</a></li>
                     <!--<li class="header-nav-list"><a class="header-nav-link" href="contact-page.html">Contacto Us</a></li>-->
-                    <li class="header-nav-list"><a class="header-btn header-btn-custom" href="reservar.html">Reserva Ahora </a></li>
-                    <a href="login.html"><img style="width: auto; height: 40px; padding-bottom: 10px ;" src="assets/img/1077114.png" alt="login and register"></a>
+                    <li class="header-nav-list"><a class="header-btn header-btn-custom" href="reservar.php">Reserva Ahora </a></li>
+                    <a href="login.php"><img style="width: auto; height: 40px; padding-bottom: 10px ;" src="assets/img/1077114.png" alt="login and register"></a>
                 </ul>
                
                 <div class="header-hamburger-icon">

@@ -14,40 +14,48 @@
     <link rel="shortcut icon" href="../imgenes/logo/logo2.png" type="image/x-icon">
 </head>
 
+<style>
+    .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+</style>
+
 <body class="scroll-bar">
     <div id="loader">
         <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
-			<path fill="#d4af37" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
-				<animateTransform
-					attributeName="transform" 
-					attributeType="XML" 
-					type="rotate"
-					dur="1s" 
-					from="0 50 50"
-					to="360 50 50" 
-					repeatCount="indefinite" />
-		</path>
-		</svg>
+            <path fill="#d4af37" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+            </path>
+        </svg>
     </div>
     <header>
         <div class="header-container">
             <nav class="header-nav-bar">
                 <div class="header-nav-logo">
-                    <a href="index.html">
+                    <a href="index.php">
                         <img width="300px" height="auto" src="..//imgenes/logo/logo del hotel.png" type="image/x-icon" alt="hotel el ruby">
                     </a>
                 </div>
                 <ul class="header-nav-lists">
                     <li class="header-nav-list">
-                        <a class="header-nav-link header-active" href="index.html">Hogar</a>
+                        <a class="header-nav-link header-active" href="index.php">Hogar</a>
                     </li>
-                    <li class="header-nav-list"><a class="header-nav-link" href="rooms-and-suites.html">Habitaciones y Suites</a></li>
-                    <li class="header-nav-list"><a class="header-nav-link" href="facilities.html">Instalaciones</a></li>
+                    <li class="header-nav-list"><a class="header-nav-link" href="rooms-and-suites.php">Habitaciones y Suites</a></li>
+                    <li class="header-nav-list"><a class="header-nav-link" href="facilities.php">Instalaciones</a></li>
                     <!--<li class="header-nav-list"><a class="header-nav-link" href="contact-page.html">Contacto Us</a></li>-->
-                    <li class="header-nav-list"><a class="header-btn header-btn-custom" href="reservar.html">Reserva Ahora </a></li>
-                    <a href="login.html"><img style="width: auto; height: 40px; padding-bottom: 10px ;" src="assets/img/1077114.png" alt="login and register"></a>
-                </ul>   
-               
+                    <li class="header-nav-list"><a class="header-btn header-btn-custom" href="reservar.php">Reserva Ahora </a></li>
+                    <a href="login.php"><img style="width: auto; height: 40px; padding-bottom: 10px ;" src="assets/img/1077114.png" alt="login and register"></a>
+                </ul>
+
                 <div class="header-hamburger-icon">
                     <div class="header-hamburger-line-1"></div>
                     <div class="header-hamburger-line-2"></div>
@@ -61,10 +69,11 @@
         <div class="jumbotron-left">
             <h2 class="jumbotron-header">Descubre el equilibrio perfecto <br> de hospitalidad, lujo y <br>comodidad.</h2>
             <p>Estamos enfocados en proporcionar a los clientes el más alto nivel<br> comodidad y excelentes tarifas accesibles</p>
-            <a href="../HOTEL_EL_RUBY/reservar.html" class="btn btn-fill btn-large">Reserva Ahora</a>
+            <a href="../HOTEL_EL_RUBY/rooms-and-suites.php" class="btn btn-fill btn-large">Reserva Ahora</a>
         </div>
+        <!-- encuentra -->
         <div class="jumbotron-right">
-            <form method="post" action="" class="jumbotron-form">
+            <form method="post" action="./bd/consultar_tarifa.php" class="jumbotron-form">
                 <!-- Put the form here -->
                 <h3>¿Asustada no puedes costearlo?</h3><br>
                 <p>No te preocupes, nuestro hotel te ofrece lo mejor<br> tarifas asequibles que puedas encontrar.</p>
@@ -74,19 +83,23 @@
                 <input type="text" id="departure" name="Fecha de salida" placeholder="Fecha de salida" onfocus="(this.type='date')"><br>
                 <label class="hide" for="guests">cantidad de personas</label>
                 <input type="number" id="guests" name="cantidad de personas" placeholder="cantidad de personas"><br>
-                <label class="hide" for="children">niños</label>
-                <input type="number" id="children" name="niños" placeholder="niños"><br>
-                <button onclick="consultarTarifa()" type="button" class="rates">CONSULTAR TARIFAS</button>
+                <button onclick="showPopup()" type="button" class="rates">CONSULTAR TARIFAS</button>
+                <script>
+                    function showPopup() {
+                        var popup = document.querySelector('.popup');
+                        popup.style.display = 'block';
+                    }
+                </script>
             </form>
             <script>
                 function consultarTarifa() {
                     var cantidadPersonas = document.getElementById("guests").value;
                     if (cantidadPersonas == 4) {
-                        window.open("facilities.html", "_self");
+                        window.open("facilities.php", "_self");
                     } else if (cantidadPersonas > 4 && cantidadPersonas <= 5) {
-                        window.open("facilities.html", "_self");
+                        window.open("facilities.php", "_self");
                     } else if (cantidadPersonas > 5 && cantidadPersonas <= 10) {
-                        window.open("facilities.html", "_self");
+                        window.open("facilities.php", "_self");
                     } else {
                         alert("Lo siento, no tenemos habitaciones que puedan acomodar esa cantidad de personas.");
                     }
@@ -105,15 +118,15 @@
             <div class="first-col">
                 <div class="upper">
                     <span>
-						<img width="40px" height="auto" src="./assets/img/clock.png" alt="clock icon" class="enjoy__clock-icon">
-					</span>
+                        <img width="40px" height="auto" src="./assets/img/clock.png" alt="clock icon" class="enjoy__clock-icon">
+                    </span>
                     <h3>Servicio de habitaciones 24 horas</h3>
                     <p>Tienes acceso al servicio de habitaciones las 24 horas del día en nuestro hotel.</p>
                 </div>
                 <div class="lower">
                     <span>
-					<img width="40px" height="auto" src="./assets/img/database.png" alt="fitness icon" class="enjoy__fitness-icon">
-				</span>
+                        <img width="40px" height="auto" src="./assets/img/database.png" alt="fitness icon" class="enjoy__fitness-icon">
+                    </span>
                     <h3>piscinas y habitaciones confortables</h3>
                     <p>El acceso al piscina es parte de nuestro paquete de hotel cuando realiza una reserva.</p>
                 </div>
@@ -122,23 +135,23 @@
             <div class="sec-col">
                 <div class="upper">
                     <span>
-						<img width="40px" height="auto" src="./assets/img/clock.png" alt="coffee icon" class="enjoy__coffee-icon">
-					</span>
+                        <img width="40px" height="auto" src="./assets/img/clock.png" alt="coffee icon" class="enjoy__coffee-icon">
+                    </span>
                     <h3>Restaurante</h3>
                     <p>Tienes acceso a los restaurantes de última generación en nuestro hotel.</p>
                 </div>
                 <div class="lower">
                     <span>
-						<img width="40px" height="auto" src="./assets/img/wifi.png" alt="wifi icon" class="enjoy__wifi-icon">
-					</span>
+                        <img width="40px" height="auto" src="./assets/img/wifi.png" alt="wifi icon" class="enjoy__wifi-icon">
+                    </span>
                     <h3>Acceso Wi-Fi gratuito</h3>
                     <p>Tiene acceso a servicios de Wi-Fi gratuitos las 24 horas.</p>
                 </div>
             </div>
             <div class="video-sx">
                 <video controls class="border-video" width="100%" height="auto">
-				<source src="..//imgenes/videos/10000000_331232238162345_7527287339239002811_n.mp4" type="video/mp4">
-			</video>
+                    <source src="..//imgenes/videos/10000000_331232238162345_7527287339239002811_n.mp4" type="video/mp4">
+                </video>
             </div>
             <!--<img src="..//imgenes/videos/10000000_331232238162345_7527287339239002811_n.mp4" type="video/mp4" alt="women in swimming pool" class="third-col-video">-->
         </div>
@@ -187,32 +200,35 @@
                     </li>
 
                 </ul>
-                <a href="../HOTEL_EL_RUBY/reservar.html" class="btn btn-fill btn-large centered">Reservar ahora</a>
+                <a href="../HOTEL_EL_RUBY/rooms-and-suites.php" class="btn btn-fill btn-large centered">Reservar ahora</a>
             </div>
         </div>
     </section>
-                
+
     <!--bottom bar-->
     <footer class="footer">
         <div class="footer-container">
             <nav class="footer-nav">
                 <div class="footer-description">
                     <h3 class="footer-description-title">HOTEL El RUBY</h3>
-                    <p>Hospitalidad y Comodidad son nuestras consignas</p>
+                    <p>La Hospitalidad y Comodidad son nuestra prioridad</p>
                 </div>
                 <div class="footer-contact-us">
                     <h3 class="footer-description-title">Contactos</h3>
                     <p class="footer-description-detail">
                         <img src="./assets/img/map-pin.svg" class="footer-description-icon" alt="hotel el ruby location">
 
-                        <span>Vereda, La Victoria, Villavieja, Huila</span></p>
+                        <span>Vereda, La Victoria, Villavieja, Huila</span>
+                    </p>
                     <p class="footer-description-detail">
                         <img src="./assets/img/phone.svg" class="footer-description-icon" alt="hotel el ruby phone">
                         <span>
-					 3133756050</span></p>
+                            3133756050</span>
+                    </p>
                     <p class="footer-description-detail">
                         <img src="./assets/img/mail.svg" class="footer-description-icon" alt="hotel el ruby email">
-                        <span>support@starhotels.com</span> </p>
+                        <span>support@starhotels.com</span>
+                    </p>
                 </div>
                 <div class="footer-follow-us">
                     <h3 class="footer-description-title">Redes sociales</h3>
@@ -230,8 +246,7 @@
                     </ul>
                 </div>
                 <div class="mapa-hotel">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.9857066976315!2d-75.17364042412567!3d3.3536404518597136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3bedf61aa8128d%3A0xbe812cff07c2bf92!2sHostal%20El%20Ruby!5e0!3m2!1ses!2sco!4v1683844836157!5m2!1ses!2sco"
-                        style="box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.658); border-radius: 50px; box-shadow: 100px;" allowfullscreen=" " loading="lazy " referrerpolicy="no-referrer-when-downgrade "></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.9857066976315!2d-75.17364042412567!3d3.3536404518597136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3bedf61aa8128d%3A0xbe812cff07c2bf92!2sHostal%20El%20Ruby!5e0!3m2!1ses!2sco!4v1683844836157!5m2!1ses!2sco" style="box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.658); border-radius: 50px; box-shadow: 100px;" allowfullscreen=" " loading="lazy " referrerpolicy="no-referrer-when-downgrade "></iframe>
                 </div>
             </nav>
         </div>

@@ -1,72 +1,45 @@
 <?php
-// Establecer la conexión a la base de datos
-$servername = "127.0.0.1";
-$username = "root";
-$password = "";
-$dbname = "hotel_el_ruby_db";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Recoger los datos enviados por el formulario
+    $nombre = $_POST["nombre"];
+    $email = $_POST["email"];
+    $telefono = $_POST["telefono"];
+    $fecha_llegada = $_POST["fecha_llegada"];
+    $fecha_salida = $_POST["fecha_salida"];
+    $habitacion = $_POST["habitacion"];
+    $personas = $_POST["personas"];
 
-// Verificar si la conexión fue exitosa
-if ($conn) {
-    echo'si se ha podido conectar la base de datos';
+    // Conectar a la base de datos (reemplaza con tus credenciales)
+
+    require_once('conexion_bd.php');
+
+    // Consulta para obtener el número de personas permitido para la habitación seleccionada
+    $sql = "SELECT personas FROM habitaciones WHERE id <= $habitacion";
+    $result = $conexion->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $max_personas_habitacion = $row["personas"];
+
+        if ($personas > $max_personas_habitacion) {
+            // El número de personas excede la capacidad de la habitación
+            echo "El número de personas excede la capacidad de la habitación seleccionada.";
+        } else {
+            // Insertar los datos en la tabla de reservas
+            $insert_query = "INSERT INTO reservas (nombre, email, telefono, fecha_llegada, fecha_salida, habitacion, personas)
+                             VALUES ('$nombre', '$email', '$telefono', '$fecha_llegada', '$fecha_salida', $habitacion, $personas)";
+
+            if ($conexion->query($insert_query) === TRUE) {
+                // La reserva se insertó con éxito
+                echo "La reserva se ha realizado con éxito. ¡Gracias!";
+            } else {
+                echo "Error al realizar la reserva: " . $conexion->error;
+            }
+        }
+    } else {
+        echo "No se encontró la habitación seleccionada en la base de datos.";
+    }
+
+    $conexion->close();
 }
-else{
-    echo 'no se ha podido conectar la base de datos';
-}
-
-// Obtener los valores del formulario (asegúrate de que los nombres coincidan con los del formulario HTML)
-$nombre = $_POST["nombre"];
-$email = $_POST["email"];
-$telefono = $_POST["telefono"];
-$fecha_llegada = $_POST["fecha_llegada"];
-$fecha_salida = $_POST["fecha_salida"];
-$habitacion = $_POST["habitacion"];
-$personas = $_POST["personas"];
-
-// Verificar que los campos no estén vacíos (puedes agregar más validaciones según tus necesidades)
-if (empty($nombre) || empty($email) || empty($telefono) || empty($fecha_llegada) || empty($fecha_salida) || empty($habitacion) || empty($personas)) {
-    echo "Todos los campos son obligatorios. Por favor, completa el formulario.";
-    exit;
-}
-
-// Crear la tabla si no existe (si ya existe, esta línea no tiene efecto)
-$sql_create_table = "CREATE TABLE IF NOT EXISTS reservas (
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
-    email VARCHAR(50) NOT NULL,
-    telefono VARCHAR(20) NOT NULL,
-    fecha_llegada DATE NOT NULL,
-    fecha_salida DATE NOT NULL,
-    habitacion INT(3) NOT NULL,
-    personas INT(3) NOT NULL
-)";
-
-if ($conn->query($sql_create_table) === FALSE) {
-    echo "Error al crear la tabla: " . $conn->error;
-    exit;
-}
-
-// Insertar los datos en la tabla (cambia "reservas" a "reservar" para que coincida con el nombre de la tabla que creaste)
-$sql_insert_data = "INSERT INTO reservas (nombre, email, telefono, fecha_llegada, fecha_salida, habitacion, personas)
-    VALUES ('$nombre', '$email', '$telefono', '$fecha_llegada', '$fecha_salida', '$habitacion', '$personas')";
-
-if ($conn->query($sql_insert_data) === TRUE) {
-    echo "Reserva realizada con éxito";
-    session_start(); // Iniciar la sesión si no está iniciada
-$_SESSION['mensaje_reserva'] = "Reserva realizada con éxito";
-header("Location: reservar.html"); // Redirigir de vuelta a la página de reserva
-// Verificar si la variable de sesión existe y mostrar el mensaje si es así
-if (isset($_SESSION['mensaje_reserva'])) {
-    echo '<div class="mensaje-reserva">' . $_SESSION['mensaje_reserva'] . '</div>';
-    // Eliminar la variable de sesión después de mostrar el mensaje
-    unset($_SESSION['mensaje_reserva']);
-}
-exit;
-} else {
-    echo "Error al realizar la reserva: " . $conn->error;
-}
-
-// Cerrar la conexión
-$conn->close();
-?>

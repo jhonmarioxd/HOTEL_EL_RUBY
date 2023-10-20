@@ -129,6 +129,8 @@ hr {
     text-decoration: none;
     transition: all 0.3s;
     margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 8px;
 }
 
 .btn-fill {

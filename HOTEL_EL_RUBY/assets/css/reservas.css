@@ -15,10 +15,10 @@
 .reservation-container {
     position: relative;
     max-width: 2000px;
-    margin: 20px auto 20px auto;
+    margin: 20px auto 20px auto;    
     padding: 0px;
     margin-bottom: 20px;
-    background-color: rgb(57, 158, 57);
+    background-color: rgb(80, 136, 43);
     box-shadow: 10px 10px 5px rgba(15, 15, 15, 0.438);
     border-radius: 5px;
     color: #fff;
@@ -64,7 +64,7 @@ form button {
 }
 
 form button:hover {
-    background-color: rgb(255, 0, 191);
+    background-color: rgba(52, 153, 247, 0.664);
 }
 
 
@@ -140,7 +140,7 @@ form button:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 2;
+    z-index: -1;
     opacity: 90%; /* Para que esté detrás del contenido */
 }
 
@@ -150,7 +150,29 @@ form button:hover {
     object-fit: cover; /* Para que la imagen cubra todo el div */
 }
 /* End----------------------------------------- */
+/* Estilo para el campo "Número de habitación" */
+label[for="habitacion"] {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
 
+select#habitacion {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+}
+
+/* Estilo para el mensaje de error (puedes personalizarlo según tus necesidades) */
+#error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
 
 /* @media queries */
 

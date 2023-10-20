@@ -1,8 +1,22 @@
-body{
-    transition: background-color 0.3s ease; 
+body {
+    transition: background-color 0.3s ease;
 }
+
 * {
     font-family: 'Source Sans Pro';
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }
 
 
@@ -531,33 +545,41 @@ hr {
         margin: auto;
         border-radius: 10px;
     }
+
     .jumbotron-container {
         width: 100%;
         flex-direction: column;
         align-items: center;
     }
+
     .jumbotron-left {
         padding: 1rem;
         margin-top: 1rem;
     }
+
     .jumbotron-header {
         font-size: 30px;
         text-align: center;
     }
+
     .jumbotron-header br {
         display: none;
     }
+
     .enjoy-services {
         flex-direction: column;
     }
+
     .enjoy-header,
     .enjoy-container,
     .enjoy-header h1 {
         text-align: center;
     }
+
     .enjoy-header>p {
         width: 100%;
     }
+
     /* Enjoy section icons for mobile */
     .enjoy__clock-icon,
     .enjoy__fitness-icon,
@@ -566,24 +588,30 @@ hr {
         position: unset;
         padding: 0.5rem;
     }
+
     .page-header {
         text-align: center;
         padding: 1rem;
         font-size: 30px;
     }
+
     .cards-container {
         flex-direction: column;
     }
+
     .card {
         margin-bottom: 1em;
     }
+
     .page-header:after {
         margin: 0.5em auto 0 auto;
         height: 2px;
     }
+
     .page-header-container {
         margin-bottom: 10px;
     }
+
     .btn-large {
         margin-bottom: 1em;
         margin: auto;
@@ -591,122 +619,153 @@ hr {
         font-size: 77%;
         padding: 15px 27px;
     }
+
     .horizontal {
         margin: 1em auto 2em auto;
     }
+
     .jumbotron-form {
         width: 90%;
         margin: 1em auto;
         padding: 1em 0.5em;
     }
+
     .jumbotron-form h3 {
         font-size: 20px;
         text-align: center;
     }
+
     .jumbotron-form p {
         font-size: 17px;
     }
+
     .jumbotron-form p br {
         display: none;
     }
+
     .jumbotron-left p {
         font-size: 18px;
         width: 100%;
         text-align: center;
         margin-bottom: 1em;
     }
+
     .jumbotron-right .jumbotron-left,
     .jumbotron-right {
         flex: 1;
     }
+
     .jumbotron-form button {
         margin-bottom: 1em;
     }
+
     .enjoy-services {
         margin-bottom: 0.5em;
     }
+
     .special-offers {
         padding: 0 0 35px;
     }
+
     .enjoy__play-icon {
         z-index: 2;
         width: 4rem;
         opacity: 0.9;
         height: 4rem;
     }
+
     .page-header,
     .enjoy-heading {
         text-transform: capitalize;
         text-align: center;
     }
+
     .horizontal {
         height: 2px;
         width: 39%;
     }
+
     .enjoy-heading {
         margin-top: 20px;
         font-size: 30px;
     }
+
     .enjoy-heading br {
         display: none;
     }
+
     .first-col,
     .sec-col {
         margin-right: unset;
     }
+
     .upper,
     .lower {
         padding-left: unset;
     }
+
     .third-col {
         order: -1;
         margin-bottom: 1rem;
     }
+
     .third-col-video {
         width: 100%;
         filter: drop-shadow(2px 4px 6px rgb(0, 217, 255));
     }
+
     .side-by-side-container {
         flex-direction: column;
     }
+
     .stacked-image-container {
         flex-direction: row;
     }
+
     .offers-sub-title {
         padding: 1rem;
     }
+
     .offers-sub-title br {
         display: none;
     }
+
     .offers-list {
         margin-left: 1.5rem;
     }
+
     .centered {
         margin: auto;
         display: block;
         width: 50%;
         text-align: center;
     }
+
     .img-hide {
         display: none;
     }
+
     .review-title {
         text-align: center;
         font-size: 30px;
     }
+
     .card {
         width: 100%;
     }
+
     .card-avi {
         width: 30%;
         display: block;
         margin: 1.5rem auto;
     }
+
     .card-title,
     .card-subtitle {
         width: 100%;
         text-align: center;
     }
+
     .card-subtitle {
         font-weight: 300;
     }
@@ -716,6 +775,7 @@ hr {
     .small-image {
         display: none;
     }
+
     .large-image {
         width: 100%;
         object-fit: cover;
@@ -731,41 +791,52 @@ hr {
         flex-direction: column;
         align-items: center;
     }
+
     .btn-large {
         margin: 0.5em auto 1em 1em;
     }
+
     .jumbotron-form {
         width: 100%;
         margin: 1em auto;
         padding: 1em 0.5em;
     }
+
     .enjoy-header,
     .enjoy-container,
     .enjoy-header h1 {
         text-align: center;
     }
+
     .enjoy-header>p {
         width: 100%;
     }
+
     .enjoy-services {
         flex-direction: column;
     }
+
     .page-header {
         padding: 0 100px 0 100px;
     }
+
     .card {
         margin-bottom: 1em;
     }
+
     .page-header:after {
         margin: 0.5em auto 0 auto;
     }
+
     .btn-large {
         margin-bottom: 1em;
     }
+
     .jumbotron-left h1 {
         font-size: 50px;
         margin-top: 1em;
     }
+
     .horizontal {
         margin: 1em auto 2em auto;
     }
@@ -775,14 +846,17 @@ hr {
     .jumbotron-form {
         margin: 1em 0;
     }
+
     .jumbotron-form h3 {
         padding-top: 1em;
         font-size: 25px;
         text-align: center;
     }
+
     .jumbotron-form p {
         font-size: 18px;
     }
+
     .rates {
         margin-bottom: 1em;
     }
@@ -794,6 +868,7 @@ hr {
         flex-direction: row;
         align-items: center;
     }
+
     .enjoy-services {
         flex-direction: row;
     }

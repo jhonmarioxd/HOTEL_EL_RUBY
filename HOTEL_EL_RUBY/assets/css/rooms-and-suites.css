@@ -192,75 +192,140 @@ hr {
 }
 
 
-/* ----------------------------------------------- */
-
-
-/* --------------- ROOMS SECTION ----------------- */
-
-
-/* ----------------------------------------------- */
-
-.rooms-section {
-    padding: 0 0 40px;
+/* Estilos para las habitaciones */
+.room-col {
+    flex: 0 0 calc(33.333% - 20px); /* Calcula el ancho para 3 columnas con margen entre ellas */
+    max-width: calc(33.333% - 20px); /* Calcula el ancho máximo para 3 columnas */
+    margin-right: 20px; /* Agrega un margen a la derecha de cada columna */
+    margin-bottom: 20px; /* Agrega un margen en la parte inferior de cada columna */
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: transform 0.3s;
 }
 
-.room-section-header-container {
-    margin-bottom: 30px;
+.room-col:hover {
+    transform: translateY(-10px); /* Efecto de elevación al pasar el cursor */
 }
 
-.room-section-header {
-    color: rgba(36, 30, 9, 0.6);
-    font-weight: 500;
-    font-size: 95%;
-    cursor: pointer;
-}
-
-.active-header {
-    color: #241E09;
-}
-
-.active-header::after {
-    display: block;
-    height: 1px;
-    background-color: #9fc554;
-    content: "";
-    width: 90px;
-    margin: 15px auto 0;
+.room-img {
+    max-width: 100%;
+    height: auto;
 }
 
 .room-title {
-    font-size: 90%;
-    font-weight: 600;
-    margin: 15px 0 12px;
+    font-size: 20px;
+    margin: 15px 0 10px;
+    font-weight: bold;
 }
 
 .room-text {
-    font-size: 70%;
-    font-weight: 300;
-    margin-bottom: 7px;
-    line-height: 132%;
+    font-size: 14px;
+    margin: 10px 0;
 }
 
-.details-container {
-    display: inline-block;
+.room-details {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
 }
 
-.details-container p {
+.detail {
+    display: flex;
+    align-items: center;
+}
+
+.detail-icon {
+    height: 20px;
     margin-right: 5px;
 }
 
-.details-container img {
-    margin-right: 0;
+.detail-text {
+    font-size: 14px;
 }
 
 .amount-text {
-    font-size: 85%;
-    margin-top: 15px;
-    font-weight: 500;
+    font-size: 16px;
+    margin: 15px 0;
 }
 
-.buttons-container {
-    margin-top: 20px;
+/* Estilos para los botones */
+.room-col a.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 14px; /* Aumenté el tamaño de fuente */
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    margin: 10px 0;
+    width: 100%; /* Para que los botones ocupen todo el ancho */
+}
+
+.room-col a.btn.btn-fill {
+    background-color: #76c740;
+    color: #fff;
+}
+
+.room-col a.btn.btn-fill:hover,
+.room-col a.btn.btn-fill:active {
+    background-color: #9fc554;
+}
+
+
+/* Estilos para los botones */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+.btn-fill {
+    background-color: #76c740;
+    color: #fff;
+}
+
+.btn-fill:hover,
+.btn-fill:active {
+    background-color: #9fc554;
+}
+
+/* Estilos adicionales */
+.container {
+    padding: 20px;
+}
+
+.row {
+    justify-content: center;
+    margin: 20px;
+}
+
+/* Añade un nuevo estilo para controlar el ancho de las columnas */
+.room-col {
+    flex: 0 0 calc(33.333% - 20px); /* Calcula el ancho para 3 columnas con margen entre ellas */
+    max-width: calc(33.333% - 20px); /* Calcula el ancho máximo para 3 columnas */
+    margin-right: 20px; /* Agrega un margen a la derecha de cada columna */
+    margin-bottom: 20px; /* Agrega un margen en la parte inferior de cada columna */
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .room-card {
+        margin: 10px 0; /* Reduje el margen vertical para dispositivos móviles */
+    }
 }
 
 

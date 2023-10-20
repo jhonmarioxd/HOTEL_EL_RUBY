@@ -38,7 +38,7 @@
 							<a class="header-nav-link" href="facilities.html">Instalaciones</a>
                     </li>
                     <li class="header-nav-list">
-                        <a class="header-nav-link header-active" href="contact-page.html">Contactos</a
+                        <a class="header-nav-link header-active" href="contact-page.php">Contactos</a
 							>
 						</li>
 						<li class="header-nav-list">
@@ -127,7 +127,7 @@
                 <nav class="footer-nav">
                     <div class="footer-description">
                         <h3 class="footer-description-title">HOTEL El RUBY</h3>
-                        <p>Hospitalidad y Comodidad son nuestras consignas</p>
+                        <p>La Hospitalidad y Comodidad son nuestra prioridad</p>
                     </div>
                     <div class="footer-contact-us">
                         <h3 class="footer-description-title">Contactos</h3>

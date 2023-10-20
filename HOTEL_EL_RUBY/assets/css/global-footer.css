@@ -57,6 +57,7 @@
     padding-right: 10px;
 }
 
+
 @media (min-width: 768px) {
     .footer-nav {
         justify-items: start;
