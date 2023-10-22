@@ -1,6 +1,8 @@
 /* Estilos para el contenedor principal */
 
-
+* {
+    font-family: 'Source Sans Pro';
+}
 
 #container_2 {
     display: flex;

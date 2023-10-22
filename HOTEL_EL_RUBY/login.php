@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./assets/css/global-header.css">
     <link rel="stylesheet" href="./assets/css/global-footer.css">
     <link rel="stylesheet" href="./assets/css/accesibility.css">
-    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="./assets/css/login.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="shortcut icon" href="../imgenes/logo/logo2.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
@@ -128,25 +128,18 @@
             </nav>
         </div>
     </footer>
-
     <div class="background1">
         <img src="assets/img/desierto-de-la-tatacoa (1).png" alt="fondo">
     </div>
-    <script src="assets/js/login-register.js"></script>
-
-    <script defer async>
+</body>
+<script defer async>
         (() => {
             const loader = document.getElementById('loader');
             const scrollBar = document.getElementsByClassName('scroll-bar')[0];
             window.addEventListener('load', () => {
-                loader.classList.add('none');
                 scrollBar.classList.remove('scroll-bar')
             });
         })();
     </script>
-    <script defer async src="assets/js/toggleHamburger.js"></script>
-    <script src="../HOTEL_EL_RUBY/assets/js/popup_admin.js"></script>
-
-</body>
-
+<script src="assets/js/login-register.js"></script>
 </html>

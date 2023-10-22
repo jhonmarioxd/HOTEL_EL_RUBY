@@ -1,5 +1,7 @@
 /*Making the hide element accessible for screen readers*/
-
+* {
+    font-family: 'Source Sans Pro';
+}
 .hide {
     position: absolute;
     height: 1px;

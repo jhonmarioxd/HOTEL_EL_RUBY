@@ -104,6 +104,9 @@ hr {
     margin-bottom: 30px;
 }
 
+* {
+    font-family: 'Source Sans Pro';
+}
 .facilities-list li {
     margin: 12px 0;
 }

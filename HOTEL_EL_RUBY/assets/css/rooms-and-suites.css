@@ -1,18 +1,8 @@
-/* ----------------------------------------------- */
 
+* {
+    font-family: 'Source Sans Pro';
+}
 
-/* ---------------- INITIAL SETUP ---------------- */
-
-
-/* ----------------------------------------------- */
-
-/* ----------------------------------------------- */
-
-
-/* -------------------- LAYOUT ------------------- */
-
-
-/* ----------------------------------------------- */
 
 .container {
     max-width: 1200px;
@@ -196,8 +186,8 @@ hr {
 .room-col {
     flex: 0 0 calc(33.333% - 20px); /* Calcula el ancho para 3 columnas con margen entre ellas */
     max-width: calc(33.333% - 20px); /* Calcula el ancho máximo para 3 columnas */
-    margin-right: 20px; /* Agrega un margen a la derecha de cada columna */
-    margin-bottom: 20px; /* Agrega un margen en la parte inferior de cada columna */
+    margin-right: 10px; /* Agrega un margen a la derecha de cada columna */
+    margin-bottom: 10px; /* Agrega un margen en la parte inferior de cada columna */
     border: 1px solid #ccc;
     padding: 20px;
     text-align: center;
@@ -257,7 +247,7 @@ hr {
     display: inline-block;
     padding: 10px 20px;
     text-align: center;
-    font-size: 14px; /* Aumenté el tamaño de fuente */
+    font-size: 8px; /* Reduje el tamaño de fuente a 12px */
     font-weight: 600;
     text-decoration: none;
     border: none;

@@ -1,3 +1,19 @@
+* {
+    font-family: 'Source Sans Pro';
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure that the body takes at least the full viewport height. */
+    margin: 0;
+}
+
+.content {
+    flex: 1; /* Allow the content to grow and push the footer down. */
+    /* Add any other styles for your main content here. */
+}
+
 .footer {
     background-color: rgb(48, 73, 31);
     color: #fff;
@@ -56,7 +72,6 @@
     justify-self: start;
     padding-right: 10px;
 }
-
 
 @media (min-width: 768px) {
     .footer-nav {
