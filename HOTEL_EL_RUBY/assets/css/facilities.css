@@ -126,14 +126,14 @@ hr {
     border-radius: 3px;
     border: 1px solid rgb(159 197 84);
     text-transform: uppercase;
-    font-size: 55%;
+    font-size: 80%;
     padding: 10px 18px;
     font-weight: 400;
     text-decoration: none;
     transition: all 0.3s;
     margin-right: 10px;
     margin-bottom: 10px;
-    font-size: 8px;
+    font-size: 12px;
 }
 
 .btn-fill {

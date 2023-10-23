@@ -1,8 +1,15 @@
+<!-- Agrega este código en la página de inicio para mostrar el botón de "Cerrar Sesión" si el usuario ha iniciado sesión -->
 <?php
+session_start();
 
+// Verifica si el usuario ha iniciado sesión
+if (isset($_SESSION['usuario'])) {
+    echo '<a href="cerrar_sesion.php">Cerrar Sesión</a>';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,7 +61,7 @@
             </div>
         </nav>-->
         <div class="reservation-container">
-            <form action="" method="post">
+            <form action="./bd/procesar_reserva.php" method="post">
                 <h2>RESERVA AHORA</h2>
                 <label for="nombre">Nombre:</label><br>
                 <input type="text" name="nombre" id="nombre" required><br>
@@ -159,78 +166,46 @@
     </script>
 
     <script>
-        // Array de días festivos en Colombia (puedes agregar más fechas si es necesario)
-        const festivos = ["2023-01-01", "2023-01-06", "2023-03-20", /* Agrega más fechas aquí */ ];
-
-        // Función para verificar si una fecha es festivo
-        function esFestivo(fecha) {
-            return festivos.includes(fecha);
-        }
-
-        // Función para verificar si una fecha es fin de semana (sábado o domingo)
-        function esFinDeSemana(fecha) {
-            const fechaSeleccionada = new Date(fecha);
-            return fechaSeleccionada.getDay() === 0 || fechaSeleccionada.getDay() === 6;
-        }
-
-        // Función para obtener la fecha actual en el formato YYYY-MM-DD
-        function obtenerFechaActual() {
-            const fechaActual = new Date();
-            const year = fechaActual.getFullYear();
-            const month = String(fechaActual.getMonth() + 1).padStart(2, '0');
-            const day = String(fechaActual.getDate()).padStart(2, '0');
-            return `${year}-${month}-${day}`;
-        }
-
-
-        // Función para configurar las restricciones de fecha
         function configurarFechas() {
             const fechaLlegadaInput = document.getElementById("fecha_llegada");
             const fechaSalidaInput = document.getElementById("fecha_salida");
             const fechaActual = obtenerFechaActual();
 
-            // Establecer la fecha mínima como el día actual
-            fechaLlegadaInput.setAttribute("min", fechaActual);
-
             fechaLlegadaInput.addEventListener("change", function() {
                 const fechaLlegada = fechaLlegadaInput.value;
-                if (esFinDeSemana(fechaLlegada) || esFestivo(fechaLlegada)) {
-                    // La fecha es fin de semana o festivo, permitir selección
-                    fechaSalidaInput.removeAttribute("max");
-                    fechaSalidaInput.style.backgroundColor = "rgb(118, 199, 64)";
+                if (fechaLlegada == fechaActual) {
+                    fechaSalidaInput.setAttribute("min", fechaLlegada);
+                    fechaSalidaInput.style.backgroundColor = ""; // Limpiar el fondo de color
                 } else {
-                    // No es fin de semana ni festivo, restringir la selección al día siguiente
-                    const fechaSiguiente = new Date(fechaLlegada);
-                    fechaSiguiente.setDate(fechaSiguiente.getDate() + 1);
-                    const year = fechaSiguiente.getFullYear();
-                    const month = String(fechaSiguiente.getMonth() + 1).padStart(2, '0');
-                    const day = String(fechaSiguiente.getDate()).padStart(2, '0');
-                    fechaSalidaInput.setAttribute("min", `${year}-${month}-${day}`);
-                    fechaSalidaInput.style.backgroundColor = ""; // Eliminar el fondo de color
+                    alert("La fecha de llegada debe ser posterior a la fecha actual.");
+                    fechaLlegadaInput.value = fechaActual; // Restaurar la fecha actual
                 }
-
-                // Asegurarse de que la fecha de salida sea válida
                 validarFechaSalida();
             });
 
             fechaSalidaInput.addEventListener("change", function() {
-                // Asegurarse de que la fecha de salida sea válida
                 validarFechaSalida();
             });
         }
 
-        // Función para validar la fecha de salida
         function validarFechaSalida() {
             const fechaLlegadaInput = document.getElementById("fecha_llegada");
             const fechaSalidaInput = document.getElementById("fecha_salida");
             const fechaLlegada = new Date(fechaLlegadaInput.value);
             const fechaSalida = new Date(fechaSalidaInput.value);
 
-            if (fechaSalida < fechaLlegada || fechaSalida < new Date()) {
-                // La fecha de salida es anterior a la fecha de llegada o a la fecha actual
+            if (fechaSalida <= fechaLlegada || fechaSalida <= new Date()) {
                 alert("La fecha de salida debe ser posterior a la fecha de llegada y a la fecha actual.");
                 fechaSalidaInput.value = ""; // Limpiar el campo de fecha de salida
             }
+        }
+
+        function obtenerFechaActual() {
+            const fechaActual = new Date();
+            const year = fechaActual.getFullYear();
+            const month = String(fechaActual.getMonth() + 1).padStart(2, '0');
+            const day = String(fechaActual.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
         }
 
         window.addEventListener('DOMContentLoaded', configurarFechas);

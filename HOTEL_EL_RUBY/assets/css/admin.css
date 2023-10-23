@@ -1,0 +1,98 @@
+/* Estilos para la tabla */
+.room-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 20px 0;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+}
+
+.room-table caption {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.room-table thead {
+    background-color: #76c740; /* Color de fondo del encabezado */
+    color: #fff;
+}
+
+.room-table th,
+.room-table td {
+    padding: 12px;
+    text-align: center;
+}
+
+.room-table th {
+    text-transform: uppercase;
+}
+
+.room-table tbody tr:nth-child(odd) {
+    background-color: #f2f2f2; /* Color de fondo de filas impares */
+}
+
+.room-table tbody tr:hover {
+    background-color: #ddd; /* Color de fondo al pasar el mouse sobre una fila */
+}
+/* Estilos para el botón de activación/desactivación */
+.toggle-button {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 15px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(28px);
+    -ms-transform: translateX(28px);
+    transform: translateX(28px);
+}
+
+#toggle-label {
+    margin-left: 10px;
+}

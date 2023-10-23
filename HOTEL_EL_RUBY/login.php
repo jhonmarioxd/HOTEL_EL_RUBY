@@ -1,3 +1,12 @@
+<!-- Agrega este código en la página de inicio para mostrar el botón de "Cerrar Sesión" si el usuario ha iniciado sesión -->
+<?php
+session_start();
+
+// Verifica si el usuario ha iniciado sesión
+if (isset($_SESSION['usuario'])) {
+    echo '<a href="cerrar_sesion.php">Cerrar Sesión</a>';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,14 +15,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="El hotel el ruby tiene una gran hospitalidad y gran atencion al cliente.">
     <title>Hotel El Ruby</title>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./assets/css/global-header.css">
     <link rel="stylesheet" href="./assets/css/global-footer.css">
     <link rel="stylesheet" href="./assets/css/accesibility.css">
     <link rel="stylesheet" href="./assets/css/login.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="shortcut icon" href="../imgenes/logo/logo2.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -133,13 +141,14 @@
     </div>
 </body>
 <script defer async>
-        (() => {
-            const loader = document.getElementById('loader');
-            const scrollBar = document.getElementsByClassName('scroll-bar')[0];
-            window.addEventListener('load', () => {
-                scrollBar.classList.remove('scroll-bar')
-            });
-        })();
-    </script>
+    (() => {
+        const loader = document.getElementById('loader');
+        const scrollBar = document.getElementsByClassName('scroll-bar')[0];
+        window.addEventListener('load', () => {
+            scrollBar.classList.remove('scroll-bar')
+        });
+    })();
+</script>
 <script src="assets/js/login-register.js"></script>
+
 </html>

@@ -107,9 +107,9 @@
                             <div class="col col-3 ">
                                 <h4 class="room-section-header active-header " id="standard-room ">Habitaciones</h4>
                             </div>
+                            <!-- Incluye el archivo PHP que muestra las habitaciones -->
+                            <?php include('bd/habitaciones.php'); ?>
                         </div>
-                        <!-- Incluye el archivo PHP que muestra las habitaciones -->
-                        <?php include('bd/habitaciones.php'); ?>
                     </div>
                 </div>
             </section>

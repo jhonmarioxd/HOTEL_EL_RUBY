@@ -11,6 +11,7 @@
 }
 
 .row {
+
     display: flex;
     flex-wrap: wrap;
 }
@@ -146,12 +147,12 @@ hr {
     border-radius: 3px;
     border: 1px solid rgba(118, 199, 64, 0.829);
     text-transform: uppercase;
-    font-size: 55%;
+    font-size: 80%;
     padding: 10px 18px;
-    font-weight: 400;
+    font-weight: 500;
     text-decoration: none;
     transition: all 0.3s;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 .btn-fill {
@@ -177,7 +178,7 @@ hr {
 }
 
 .btn-large {
-    font-size: 65%;
+    font-size: 80%;
     padding: 9px 22px;
 }
 

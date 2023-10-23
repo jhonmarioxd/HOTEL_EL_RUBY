@@ -31,7 +31,7 @@ $conexion->close();
                 </div>
                 <div class="detail">
                     <img src="assets/img/bed.png" alt="" class="detail-icon">
-                    <p class="detail-text"><?php echo $habitacion['n_camas_hb']; ?> Camas</p>
+                    <p class="detail-text"><?php echo $habitacion['n_camas_hb']; ?> Camas</p><br>
                 </div>
             </div>
             <p class="amount-text">Precio: $<?php echo $habitacion['precio_hb']; ?> Por persona</p><br>
